@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
@@ -22,7 +21,8 @@ function App() {
 			style={{
 				backgroundImage: `url(images/${imgArr[Math.abs(currImg) % imgArr.length]})`,
 				backgroundRepeat: 'no-repeat',
-				backgroundSize: 'auto',
+				backgroundSize: 'cover',
+				backgroundPosition: 'center center',
 			}}
 		>
 			<div
