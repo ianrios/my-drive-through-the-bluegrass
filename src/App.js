@@ -1,26 +1,40 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const [currImg, setCurrImg] = useState(0);
+	const imgArr = [
+		'DSC_0026.JPG',
+		'DSC_0027.JPG',
+		'DSC_0028.JPG',
+		'DSC_0029.JPG',
+		'DSC_0030.JPG',
+		'DSC_0031.JPG',
+		'DSC_0032.JPG',
+		'DSC_0033.JPG',
+		'DSC_0034.JPG',
+	];
+
+	return (
+		<div
+			className="app"
+			style={{
+				backgroundImage: `url(images/${imgArr[Math.abs(currImg) % imgArr.length]})`,
+				backgroundRepeat: 'no-repeat',
+				backgroundSize: 'auto',
+			}}
+		>
+			<div
+				className='float-left left-image-flip'
+				onClick={() => setCurrImg(currImg => currImg - 1)}
+			/>
+			<div
+				className='float-right right-image-flip'
+				onClick={() => setCurrImg(currImg => currImg + 1)}
+			/>
+		</div>
+	);
 }
 
 export default App;
